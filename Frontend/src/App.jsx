@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Cards from './components/Cards.jsx'
-import Signuppage from './components/Signuppage.jsx'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Signinpage from './components/Signinpage.jsx';
+import { Outlet } from 'react-router-dom';
 import './App.css'
 
 function App() {
   const [status, setStatus] = useState(false);
+
+  const verify=()=>{
+      console.log("check 2 ok");
+      setStatus(true)
+  }
 
 if (status) {
     return (
@@ -21,9 +24,7 @@ else
 {
   return(
 
-    
-
-  <Signuppage/>
+<Outlet context={{verify}}/>
 
   )
   
